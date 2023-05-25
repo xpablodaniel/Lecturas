@@ -1,0 +1,264 @@
+buscar elementos en el documento
+
+¡Exactamente! El método "querySelector()" te permite buscar un elemento en el DOM utilizando un selector CSS. El método devuelve el primer elemento que coincide con el selector especificado.
+
+Por ejemplo, para buscar el primer elemento "h1" en el documento, puedes utilizar el siguiente código:
+
+```javascript
+var miH1 = document.querySelector('h1');
+```
+
+Este código selecciona el primer elemento "h1" en el documento y lo asigna a la variable "miH1".
+
+
+
+Una vez que encuentras el elemento que estás buscando con el método "querySelector()", puedes hacer muchas cosas con él. Por ejemplo, puedes cambiar su contenido, agregarle nuevos elementos como hijos, cambiar sus atributos, etc.
+
+Por ejemplo, para cambiar el contenido del primer elemento "h1" en el documento a "Hola mundo!", puedes utilizar el siguiente código:
+
+```javascript
+var miH1 = document.querySelector('h1');
+miH1.textContent = 'Hola inmundo!';
+```
+
+Este código selecciona el primer elemento "h1" en el documento y luego cambia su contenido a "Hola inmundo!" utilizando la propiedad "textContent".
+
+
+crear elemento
+
+Para agregar un nuevo elemento HTML al DOM utilizando JavaScript, puedes seguir los siguientes pasos:
+
+1. Crea un nuevo elemento HTML utilizando el método "document.createElement()". Por ejemplo, para crear un nuevo elemento "div", puedes utilizar el siguiente código:
+
+```javascript
+var div = document.createElement('div');
+```
+
+2. Agrega contenido al elemento HTML utilizando el método "innerHTML" o creando nuevos elementos y agregándolos como hijos del elemento principal. Por ejemplo, para agregar un nuevo párrafo al "div" creado anteriormente, puedes utilizar el siguiente código:
+
+```javascript
+var p = document.createElement('p');
+p.innerHTML = 'Este es un nuevo párrafo.';
+div.appendChild(p);
+```
+
+3. Agrega el nuevo elemento HTML al DOM utilizando el método "appendChild()". Por ejemplo, para agregar el "div" creado anteriormente al "body" de la página, puedes utilizar el siguiente código:
+
+```javascript
+document.body.appendChild(div);
+```
+
+¿Te gustaría saber más sobre cómo manipular el DOM en JavaScript?
+¡Genial! Para cambiar el contenido de un elemento HTML en el DOM utilizando JavaScript, puedes seguir los siguientes pasos:
+
+1. Selecciona el elemento HTML que deseas modificar utilizando cualquiera de los métodos de selección del DOM en JavaScript. Por ejemplo, para seleccionar un elemento "h1" con el ID "titulo", puedes utilizar el siguiente código:
+
+```javascript
+var titulo = document.getElementById('titulo');
+```
+
+2. Modifica el contenido del elemento HTML utilizando el método "innerHTML". Por ejemplo, para cambiar el texto del elemento "h1" seleccionado anteriormente, puedes utilizar el siguiente código:
+
+```javascript
+titulo.innerHTML = 'Nuevo título';
+```
+
+3. El cambio se reflejará automáticamente en la página web.
+
+ Para agregar un elemento HTML después de otro elemento en el DOM utilizando JavaScript, puedes utilizar el método "insertBefore()" o el método "after()". Ambos métodos te permiten insertar un nuevo elemento HTML después de otro elemento existente en el DOM.
+
+Para insertar un nuevo elemento HTML después de un elemento existente utilizando el método "insertBefore()", debes seleccionar el elemento existente y su padre, y luego llamar al método "insertBefore()" en el padre con el nuevo elemento y el siguiente hermano como argumentos. Por ejemplo, para insertar un nuevo elemento "img" después de un elemento "h1" con el ID "miH1", puedes utilizar el siguiente código:
+
+```javascript
+var miH1 = document.getElementById('miH1');
+var miImg = document.createElement('img');
+miH1.parentNode.insertBefore(miImg, miH1.nextSibling);
+```
+
+Para insertar un nuevo elemento HTML después de un elemento existente utilizando el método "after()", debes seleccionar el elemento existente y luego llamar al método "after()" en él con el nuevo elemento como argumento. Por ejemplo, para insertar un nuevo elemento "img" después de un elemento "h1" con el ID "miH1", puedes utilizar el siguiente código:
+
+```javascript
+var miH1 = document.getElementById('miH1');
+var miImg = document.createElement('img');
+miH1.after(miImg);
+```
+
+Para crear un nuevo elemento "div" debajo de un elemento "h1" con el ID "miH1" y agregar una imagen dentro de él, puedes utilizar el siguiente código:
+
+```javascript
+var miH1 = document.getElementById('miH1');
+var miDiv = document.createElement('div');
+var miImg = document.createElement('img');
+miDiv.appendChild(miImg);
+miH1.parentNode.insertBefore(miDiv, miH1.nextSibling);
+```
+
+Este código crea un nuevo elemento "div" y un nuevo elemento "img", y luego agrega el elemento "img" dentro del elemento "div". Luego, el código inserta el elemento "div" después del elemento "h1" en el DOM.
+crear imagen
+
+Para crear una etiqueta `<img>` en JavaScript, puedes utilizar el método `createElement()` y luego establecer los atributos de la imagen utilizando el método `setAttribute()`. Aquí hay un ejemplo:
+
+```javascript
+var img1 = document.createElement("img");
+img1.setAttribute("src", "https://ruta/de/la/imagen/en/la/nube.jpg");
+
+var img2 = document.createElement("img");
+img2.setAttribute("src", "ruta/de/la/imagen/en/el/ordenador.jpg");
+
+var contenedor = document.getElementById("miContenedor");
+contenedor.appendChild(img1);
+contenedor.appendChild(img2);
+```
+
+En este ejemplo, se crean dos etiquetas `<img>`. La primera imagen tiene la ruta de la imagen alojada en la nube y la segunda imagen tiene la ruta de la imagen alojada en el ordenador.
+
+
+
+
+
+
+escucha de eventos
+Una vez que has encontrado un elemento en el documento utilizando el método “querySelector()”, puedes escuchar eventos en ese elemento utilizando el método “addEventListener()”. Puedes escuchar eventos como “click”, “mouseover”, “keydown”, etc.
+
+Por ejemplo, si tienes un botón con un ID de “miBoton”, puedes escuchar el evento “click” en ese botón y ejecutar una función llamada “miFuncion()” cuando se hace clic en el botón utilizando el siguiente código:
+
+var miBoton = document.querySelector('#miBoton');
+miBoton.addEventListener('click', miFuncion);
+
+function miFuncion() {
+  alert('¡Hola mundo!');
+}
+Este código selecciona el botón con un ID de “miBoton” y luego agrega un “escucha” para el evento “click” utilizando el método “addEventListener()”. Cuando se hace clic en el botón, se ejecuta la función “miFuncion()”, que muestra una alerta que dice “¡Hola mundo!”.
+
+Para que los eventos sean útiles, se deben asociar funciones o código JavaScript a cada evento. De esta forma, cuando se produce un evento se ejecuta el código indicado, por lo que la aplicación puede responder ante cualquier evento que se produzca durante su ejecución¹. Por ejemplo, si deseas que una función se ejecute cuando el usuario hace clic en un botón, debes asociar la función con el evento "click" del botón².
+Para utilizar una función para escuchar eventos en JavaScript, primero debes crear la función que deseas utilizar. Luego, puedes agregar un "escuchador de eventos" a un elemento HTML utilizando el método `addEventListener()`. Este método toma dos argumentos: el tipo de evento que deseas escuchar (por ejemplo, "click") y la función que deseas ejecutar cuando se produce el evento². Por ejemplo:
+
+<body>
+      <button id="miBoton">Saludo Paisa</button>
+
+<script>
+
+  function miFuncion() {
+    alert("¡Hola hijue puta!");
+  }
+  
+  document.getElementById("miBoton").addEventListener("click", miFuncion);
+
+</script>
+</body>
+
+otro ejemplo. una caja que cambia de color cuando se le acerca el puntero del mouse
+
+
+```html
+
+<style>
+  .box{
+    width: 100px;
+    height: 100px;
+    background: red;
+  }
+</style>
+
+<div id="box" class="box"></div>
+  <button id="button">click me perra!</button>
+```
+
+
+
+```javascript
+
+var button = document.getElementById("button");
+var box = document.getElementById("box");
+  
+
+box.addEventListener("mouseenter", () => {
+	box.style.background = "red"
+})
+box.addEventListener("mouseleave", () => {
+	box.style.background = "green"
+});
+
+
+otro ejemplo de captura de tecla ingresada en cuadro de texto
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Registro de teclas</title>
+  </head>
+  <body>
+    <!-- Creamos un formulario con un campo de entrada de texto -->
+    <form id="form">
+      <label for="input">Ingrese un texto:</label>
+      <input type="text" id="input">
+    </form>
+    
+    <!-- Agregamos un script de JavaScript para manejar eventos -->
+    <script>
+      // Obtenemos una referencia al formulario y al campo de entrada de texto
+      const form = document.getElementById('form');
+      const input = document.getElementById('input');
+
+      // Registramos un controlador de eventos para el evento 'keyup' en el campo de entrada de texto
+      input.addEventListener('keyup', (e) => {
+        // Cuando el evento 'keyup' se dispara, registramos el valor actual del campo de entrada de texto en la consola
+        console.log(input.value);
+      });
+    </script>
+  </body>
+</html>
+
+
+```
+
+funciones
+En JavaScript, existen diferentes formas de definir funciones, y dos de ellas son las funciones anónimas y las funciones flecha (arrow functions).
+
+Las funciones anónimas son funciones que no tienen un nombre definido, por lo que se definen directamente en el lugar donde se utilizarán, dentro de los paréntesis de los manejadores de eventos, por ejemplo.
+
+Por otro lado, las funciones flecha se introdujeron en ES6 (EcmaScript 2015) como una forma más concisa y legible de definir funciones en JavaScript. Se les llama "arrow functions" porque utilizan la sintaxis de la flecha (=>) en lugar de la palabra clave function.
+
+Aquí te dejo un ejemplo que muestra la diferencia entre ambas:
+// Función anónima
+button.addEventListener("click", function() {
+  console.log("Haz hecho click en el botón");
+});
+
+// Función flecha
+button.addEventListener("click", () => {
+  console.log("Haz hecho click en el botón");
+});
+
+Como puedes ver, la función anónima se define con la palabra clave function, seguida de los parámetros que recibe (en este caso no tiene parámetros), y luego del cuerpo de la función. Por otro lado, la función flecha se define con una sintaxis más corta y directa, utilizando los parámetros entre paréntesis (en este caso tampoco tiene parámetros), seguido de la flecha (=>) y el cuerpo de la función.
+
+En resumen, ambas opciones son válidas y pueden utilizarse en diferentes situaciones, pero las funciones flecha suelen ser más legibles y concisas, especialmente cuando se utilizan en situaciones como la definición de manejadores de eventos o funciones que reciben otras funciones como parámetros. Espero haber aclarado tus dudas, ¡no dudes en preguntarme si tienes alguna otra!
+
+otro ejemplo de funcion
+
+// Obtener referencia al botón
+const button = document.getElementById("myButton");
+
+// Agregar manejador de evento click
+button.addEventListener("click", function() {
+  // Aquí va el código que se ejecutará cuando se haga clic en el botón
+  console.log("Haz hecho clic en el botón!");
+});
+
+En este ejemplo, la función que se ejecutará cuando el usuario haga clic en el botón está definida como una función anónima, que se pasa directamente como segundo parámetro al método addEventListener.
+
+Sin embargo, también podríamos definir esta función por separado y luego pasarla como parámetro al método addEventListener utilizando una función flecha, como se muestra a continuación:
+// Definir la función a ejecutar
+const handleClick = () => {
+  console.log("Haz hecho clic en el botón!");
+};
+
+// Obtener referencia al botón
+const button = document.getElementById("myButton");
+
+// Agregar manejador de evento click
+button.addEventListener("click", handleClick);
+
+En este ejemplo, la función handleClick se define utilizando una función flecha y luego se pasa como segundo parámetro al método addEventListener.
+
+En resumen, una vez que se han localizado los elementos en el DOM, podemos interactuar con ellos a través de funciones que se ejecutan en respuesta a eventos como clics, movimientos del mouse, pulsaciones de teclas, etc.
